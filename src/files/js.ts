@@ -1,12 +1,12 @@
 import * as terser from 'terser';
 import * as path from 'path';
-import { efficiency } from './utils';
+import { efficiency } from '../misc/utils';
 
 export class EsMinifier {
 
     constructor(private options: terser.MinifyOptions) { }
 
-    minify(input: string, fileName: string | null, map: { outFileName: string, jsMapSource: string} | null): MinifyOutput {
+    minify(input: string, fileName: string | null, map: { outFileName: string, jsMapSource: string } | null): MinifyOutput {
 
         const local: terser.MinifyOptions = JSON.parse(JSON.stringify(this.options));
 

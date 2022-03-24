@@ -1,8 +1,16 @@
 import * as fs from 'fs';
+import * as path from 'path';
 // import * as vscode from 'vscode';
 
 export enum DataFormat {
     json = 'JSON'
+}
+
+export function createDir(dirOrFilePath: string): void {
+    const dir = path.dirname(dirOrFilePath);
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+    }
 }
 
 export class File {

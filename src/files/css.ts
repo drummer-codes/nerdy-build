@@ -1,6 +1,6 @@
 import * as cleancss from 'clean-css';
 import * as autoprefixer from 'autoprefixer';
-import { efficiency } from './utils';
+import { efficiency } from '../misc/utils';
 
 interface CssInputFile {
     file: string;
@@ -8,9 +8,7 @@ interface CssInputFile {
 }
 
 export class CssMinifier {
-
     constructor(private options: cleancss.Options, private ap: { use: boolean, options: autoprefixer.Options }) { }
-
     minify(_input: string | CssInputFile): MinifyOutput {
 
         const cssInputStr = typeof _input === 'string' ? _input : _input.data;
@@ -24,13 +22,13 @@ export class CssMinifier {
                 css = autoprefixer.process(cssInputStr, this.ap.options).toString();
 
             } catch (e) {
-
+                const ee: any = e;
                 return {
                     success: false,
                     warnings: [],
                     errors: [
                         // 'Autoprefixer failed to parse CSS. Probaly due to an syntax error.',
-                         e.message
+                        ee.message
                     ]
                 };
 
@@ -43,8 +41,8 @@ export class CssMinifier {
         }
 
         const output = new cleancss(this.options as cleancss.OptionsOutput)
-        // .minify(css);
-        .minify(typeof _input === 'string' ? css : { [_input.file]: { styles: css } }) // TODO: Use callback
+            // .minify(css);
+            .minify(typeof _input === 'string' ? css : { [_input.file]: { styles: css } }) // TODO: Use callback
 
         if (output.errors.length > 0) {
 
@@ -85,5 +83,4 @@ export class CssMinifier {
         }
 
     }
-
 }

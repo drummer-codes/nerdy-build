@@ -2,7 +2,6 @@
 /*! Important stuff! */
 
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-@import 'footer.css';
 
 .example {
     filter: blur(1px);
