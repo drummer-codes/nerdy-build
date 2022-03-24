@@ -1,12 +1,21 @@
 import * as vscode from 'vscode';
 import { config, reloadConfig } from '../config';
 import * as path from 'path';
+import { existsSync, } from "fs";
 
 export const EXT_ID = 'nerdy-build';
 export const SUPPORTED_FILES = [
     'javascript',
     'css'
 ];
+
+export function isActivated(): boolean {
+    if (!vscode.workspace.workspaceFolders) {
+        return false;
+    }
+    const file = path.join(vscode.workspace.workspaceFolders[0].uri.fsPath, '.nerdy-build');
+    return existsSync(file);
+}
 
 export function efficiency(original: number, minified: number): number {
     return original === 0 ? 0 : Number((100 - ((minified / original) * 100)).toFixed(2));

@@ -2,8 +2,11 @@
     "name": "nerdy-build",
     "displayName": "CSS and JS builder by NerdyDev",
     "description": "",
-    "version": "1.0.0",
-    "publisher": "NerdyDev",
+    "version": "1.0.1",
+    "publisher": "nerdy-dev",
+    "repository": {
+        "url": "https://github.com/nerdy-dev/nerdy-build"
+    },
     "icon": "icon.png",
     "galleryBanner": {
         "color": "#222",

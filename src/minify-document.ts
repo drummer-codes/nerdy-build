@@ -4,12 +4,15 @@ import { config } from './config';
 import { output } from './misc/output';
 import { CssMinifier } from './files/css';
 import { EsMinifier } from './files/js';
-import { isInSourceFolder, getOutPath, getSubPath } from './misc/utils';
+import { isInSourceFolder, getOutPath, getSubPath, isActivated } from './misc/utils';
 import { File, createDir } from './misc/fs';
 import { existsSync } from "fs";
 
 export function minifyDocument(doc: vscode.TextDocument): void {
-    if (!vscode.workspace.workspaceFolders) {
+    if (!isActivated()) {
+        return;
+    }
+    if (!existsSync(path.join())) {
         return;
     }
     if (!isInSourceFolder(doc)) {
