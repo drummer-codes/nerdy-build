@@ -1,4 +1,4 @@
-# nerdy-builder
+# nerdy-build
 Small VS Code extension that minifies CSS and JS files from your `source` folder, saves the file to your `public` folder and optionally uploads it to a remote server by using `sftp.upload.file` command.
 
 
