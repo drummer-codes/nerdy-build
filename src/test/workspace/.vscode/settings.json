@@ -1,9 +1,0 @@
-{
-    "nerdy-build.cssMinPath": "dist/css",
-    "nerdy-build.cssPostfix": "minified",
-    "nerdy-build.enableAutoprefixer": true,
-    "nerdy-build.enableAutoprefixerSelection": true,
-    "nerdy-build.genCSSmap": true,
-    "nerdy-build.genJSmap": true,
-    "nerdy-build.cssMapSource": "../../css"
-}
